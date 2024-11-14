@@ -1,7 +1,10 @@
 package com.snowcattle.game.extend;
 
+import com.snowcattle.game.common.enums.BOEnum;
 import com.snowcattle.game.common.util.BeanUtil;
 import com.snowcattle.game.bootstrap.manager.GlobalManager;
+import com.snowcattle.game.service.rpc.client.RpcContextHolder;
+import com.snowcattle.game.service.rpc.client.RpcContextHolderObject;
 
 /**
  * Created by jwp on 2017/5/6.
@@ -15,7 +18,8 @@ public class GlobalManagerEx extends GlobalManager{
         GameManager.getInstance().setLocalSpringBeanGameManager(localSpringBeanGameManager);
         LocalSpringServiceGameManager localSpringServiceGameManager = (LocalSpringServiceGameManager) BeanUtil.getBean("localSpringServiceGameManager");
         GameManager.getInstance().setLocalSpringServiceGameManager(localSpringServiceGameManager);
-
+        RpcContextHolderObject rpcContextHolderObject = new RpcContextHolderObject(BOEnum.WORLD, 8001);
+        RpcContextHolder.setContextHolder(rpcContextHolderObject);
     }
 
     public void startGameManager() throws Exception{

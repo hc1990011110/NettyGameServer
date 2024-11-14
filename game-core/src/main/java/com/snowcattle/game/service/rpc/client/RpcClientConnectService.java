@@ -90,7 +90,10 @@ public class RpcClientConnectService implements IService {
     public AbstractRpcConnectManager getRpcConnectMannger(BOEnum boEnum){
         AbstractRpcConnectManager abstractRpcConnectManager = worldRpcConnectManager;
         if(boEnum == BOEnum.GAME){
-        }else if (boEnum == BOEnum.DB){
+            return gameRpcConnecetMananger;
+        }
+        if (boEnum == BOEnum.DB){
+            return dbRpcConnnectMananger;
         }
         return worldRpcConnectManager;
     }

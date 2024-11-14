@@ -8,8 +8,11 @@ import com.snowcattle.game.common.constant.Loggers;
 import com.snowcattle.game.bootstrap.manager.GlobalManager;
 import com.snowcattle.game.bootstrap.manager.ServerServiceManager;
 import com.snowcattle.game.service.net.LocalNetService;
+import org.apache.log4j.MDC;
 import org.slf4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.lang.management.ManagementFactory;
 
 /**
  * Created by jiangwenping on 17/2/6.
@@ -62,6 +65,8 @@ public class GameServer extends AbstractServerService {
         super(ServerServiceManager.SERVICE_ID_ROOT);
         this.globalManager = new GlobalManager();
         this.localNetService = new LocalNetService();
+        MDC.put("pid", ProcessInfo.getProcessId());
+        MDC.put("processName", ProcessInfo.getProcessName());
     }
 
     /**
