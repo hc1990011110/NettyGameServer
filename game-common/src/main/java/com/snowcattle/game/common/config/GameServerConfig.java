@@ -102,7 +102,7 @@ public class GameServerConfig extends ServerConfig {
     /**
      * 最大tcpsession链接数量
      */
-    private int maxTcpSessionNumber;
+    private int maxTcpSessionNumber=1000;
     /**
      * websock模式启用ssl
      */

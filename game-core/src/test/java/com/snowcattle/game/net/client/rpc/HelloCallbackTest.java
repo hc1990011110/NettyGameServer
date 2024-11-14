@@ -35,7 +35,7 @@ public class HelloCallbackTest {
             AsyncRpcProxy proxy = (AsyncRpcProxy) rpcProxyService.createAsync(HelloService.class);
             RpcContextHolderObject rpcContextHolderObject = new RpcContextHolderObject(BOEnum.WORLD, 8001);
             RpcContextHolder.setContextHolder(rpcContextHolderObject);
-            RPCFuture rpcFuture = proxy.call("hello", "xiaoming");
+            RPCFuture rpcFuture = proxy.call("hello", "chaoge");
             rpcFuture.addCallback(new AsyncRPCCallback() {
                 @Override
                 public void success(Object result) {
